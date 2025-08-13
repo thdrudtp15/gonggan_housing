@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 import Script from 'next/script';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 const API_KEY = process.env.NEXT_PUBLIC_KAKAO_MAPS_API_KEY;
 
 export const metadata: Metadata = {
@@ -23,7 +25,11 @@ export default function RootLayout({
                     strategy="afterInteractive"
                 />
             </head>
-            <body>{children}</body>
+            <body>
+                <Header />
+                {children}
+                <Footer />
+            </body>
         </html>
     );
 }
