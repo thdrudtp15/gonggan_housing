@@ -47,14 +47,4 @@ export const sendMail = async (prevState: sendMailTypes, formdata: FormData) => 
     await transporter.sendMail(mailContent);
 
     return errors;
-    // if(!serviceDate || serviceDate.trim() === "") {
-    //     errors.customName = "은 필수입니다."
-
-    // }
-    // if(!address || address.trim() === "") {
-
-    // }
-    // if(!notes || notes.trim() === "") {
-
-    // }
 };

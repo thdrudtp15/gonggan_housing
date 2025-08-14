@@ -14,7 +14,7 @@ export const getMailContent = (html: string) => {
     return {
         from: process.env.NEXT_PUBLIC_NAVER_EMAIL,
         to: process.env.NEXT_PUBLIC_NAVER_EMAIL,
-        subject: '문의사항이 도착했습니다.',
+        subject: '공간하우징 문의사항',
         html,
     };
 };
