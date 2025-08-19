@@ -1,9 +1,10 @@
 'use client';
 
+import { useActionState } from 'react';
+
 import { login, signup } from '@/action/login';
 
 import styles from './page.module.scss';
-import { useActionState } from 'react';
 
 export default function LoginPage() {
     const [state, action, pending] = useActionState(login, { error: '' });

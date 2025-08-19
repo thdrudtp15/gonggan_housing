@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 import Script from 'next/script';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from '@/components/ui/Header';
+import Footer from '@/components/ui/Footer';
 const API_KEY = process.env.NEXT_PUBLIC_KAKAO_MAPS_API_KEY;
 
 export const metadata: Metadata = {
