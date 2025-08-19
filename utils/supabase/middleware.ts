@@ -39,12 +39,12 @@ export async function updateSession(request: NextRequest) {
         data: { user },
     } = await supabase.auth.getUser(); // 아마 쿠키를 자동 참조 하는듯?
     // 로그인 안 된 사용자가 보호된 페이지 접근 시 로그인 페이지로 안내.
-    console.log(user, request.nextUrl.pathname);
+
     if (
         !user &&
         !request.nextUrl.pathname.startsWith('/login') &&
         !request.nextUrl.pathname.startsWith('/auth') &&
-        !request.nextUrl.pathname.startsWith('/error') &&
+        // !request.nextUrl.pathname.startsWith('/error') &&
         request.nextUrl.pathname !== '/'
     ) {
         // no user, potentially respond by redirecting the user to the login page

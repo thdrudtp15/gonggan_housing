@@ -3,8 +3,11 @@
 import { login, signup } from '@/action/login';
 
 import styles from './page.module.scss';
+import { useActionState } from 'react';
 
 export default function LoginPage() {
+    const [state, action, pending] = useActionState(login, { error: '' });
+
     return (
         <div className={styles.container}>
             <div className={styles.card}>
@@ -23,8 +26,8 @@ export default function LoginPage() {
                         </label>
                         <input id="password" name="password" type="password" required className={styles.input} />
                     </div>
-
-                    <button formAction={login} className={styles.button}>
+                    {state.error && <p>{state.error}</p>}
+                    <button formAction={action} className={styles.button}>
                         로그인
                     </button>
 
