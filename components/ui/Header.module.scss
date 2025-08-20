@@ -9,5 +9,12 @@
 .header {
     width: 100%;
     height: 3rem;
-    @include flex(center, center, row, 1rem);
+    background-color: var(--bg);
+    @include flex(space-between, center, row, 1rem);
+    padding: 0px 1rem;
+}
+
+.links {
+    display: flex;
+    gap: 1rem;
 }

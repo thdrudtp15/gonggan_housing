@@ -1,8 +1,12 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { signOut } from '@/action/login';
 import { createClient } from '@/utils/supabase/server';
 
+import logo from '@/public/images/logo.png';
+
 import styles from './Header.module.scss';
-import Link from 'next/link';
 
 const Header = async () => {
     const supabase = await createClient();
@@ -10,18 +14,23 @@ const Header = async () => {
 
     return (
         <header className={styles.header}>
-            <nav className={styles.nav}>
-                <ul>
+            <Link href="/">
+                <Image src={logo.src} width={60} height={60} alt="공간하우징 로고" priority />
+            </Link>
+            <nav>
+                <ul className={styles.links}>
                     <li>
-                        <Link href="portfolio">시공사례</Link>
+                        <Link href="/portfolio">시공사례</Link>
                     </li>
+                    {data.user && (
+                        <li>
+                            <form action={signOut}>
+                                <button>로그아웃</button>
+                            </form>
+                        </li>
+                    )}
                 </ul>
             </nav>
-            {data.user && (
-                <form action={signOut}>
-                    <button>로그아웃</button>
-                </form>
-            )}
         </header>
     );
 };
