@@ -1,0 +1,13 @@
+@mixin flex($jc, $ai, $fd, $g) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-direction: $fd;
+    gap: $g;
+}
+
+.header {
+    width: 100%;
+    height: 3rem;
+    @include flex(center, center, row, 1rem);
+}

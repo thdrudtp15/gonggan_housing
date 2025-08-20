@@ -7,22 +7,28 @@ type Props = {
     searchParams: Promise<{ page: string; search: string }>;
 };
 
+const pageSize = 2;
+
 const HomePage = async ({ searchParams }: Props) => {
+    const supabase = await createClient();
     const { page, search } = await searchParams;
 
-    const pageSize = 2;
-    const from = ((+page || 1) - 1) * pageSize;
-    const to = from + pageSize - 1;
+    const getPortfolio = unstable_cache(
+        async (page: number) => {
+            const from = ((+page || 1) - 1) * pageSize;
+            const to = from + pageSize - 1;
+            const { data, count } = await supabase
+                .from('portfolio')
+                .select('*', { count: 'exact' })
+                .order('created_at', { ascending: false })
+                .range(from, to);
 
-    console.log(from, to);
+            return { data, count };
+        },
+        [`portfolio-page:${page}`]
+    );
 
-    const supabase = await createClient();
-    const { data, count } = await supabase
-        .from('portfolio')
-        .select('*', { count: 'exact' })
-        .order('created_at', { ascending: false })
-        .range(from, to);
-
+    const { data, count } = await getPortfolio(+page || 1);
     const totalPages = (count && Math.ceil(count / pageSize)) || 1;
 
     return (
