@@ -22,12 +22,18 @@ const Header = async () => {
                     <li>
                         <Link href="/portfolio">시공사례</Link>
                     </li>
+
                     {data.user && (
-                        <li>
-                            <form action={signOut}>
-                                <button>로그아웃</button>
-                            </form>
-                        </li>
+                        <>
+                            <li>
+                                <Link href="/admin">어드민</Link>
+                            </li>
+                            <li>
+                                <form action={signOut}>
+                                    <button>로그아웃</button>
+                                </form>
+                            </li>
+                        </>
                     )}
                 </ul>
             </nav>

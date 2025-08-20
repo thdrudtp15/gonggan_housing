@@ -25,7 +25,8 @@ const HomePage = async ({ searchParams }: Props) => {
 
             return { data, count };
         },
-        [`portfolio-page:${page}`]
+        [`portfolio-page:${page}`],
+        { revalidate: 86400 }
     );
 
     const { data, count } = await getPortfolio(+page || 1);
