@@ -11,15 +11,15 @@ const Maps = () => {
             id="map"
             center={{
                 // 지도의 중심좌표https://apis.map.kakao.com/web/wizard
-                lat: 33.450701,
-                lng: 126.570667,
+                lat: 36.209002905591674,
+                lng: 127.22366076877016,
             }}
             style={{
                 // 지도의 크기
                 width: '100%',
                 height: '350px',
             }}
-            level={3} // 지도의 확대 레벨
+            level={2} // 지도의 확대 레벨
         />
     );
 };

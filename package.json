@@ -1,38 +1,42 @@
 {
-  "name": "gongan_housing",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@supabase/ssr": "^0.6.1",
-    "@supabase/supabase-js": "^2.55.0",
-    "@tiptap/extensions": "^3.2.0",
-    "@tiptap/pm": "^3.2.0",
-    "@tiptap/react": "^3.2.0",
-    "@tiptap/starter-kit": "^3.2.0",
-    "cloudinary": "^2.7.0",
-    "next": "15.4.6",
-    "next-cloudinary": "^6.16.0",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-kakao-maps-sdk": "^1.2.0",
-    "sass": "^1.90.0",
-    "supabase": "^2.33.9"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/nodemailer": "^6.4.17",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.6",
-    "nodemailer": "^7.0.5",
-    "typescript": "^5"
-  }
+    "name": "gongan_housing",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@supabase/ssr": "^0.6.1",
+        "@supabase/supabase-js": "^2.55.0",
+        "@tiptap/extension-bold": "^3.2.0",
+        "@tiptap/extension-strike": "^3.2.0",
+        "@tiptap/extension-text-align": "^3.2.0",
+        "@tiptap/extension-underline": "^3.2.0",
+        "@tiptap/extensions": "^3.2.0",
+        "@tiptap/pm": "^3.2.0",
+        "@tiptap/react": "^3.2.0",
+        "@tiptap/starter-kit": "^3.2.0",
+        "cloudinary": "^2.7.0",
+        "next": "15.4.6",
+        "next-cloudinary": "^6.16.0",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "react-kakao-maps-sdk": "^1.2.0",
+        "sass": "^1.90.0",
+        "supabase": "^2.33.9"
+    },
+    "devDependencies": {
+        "@eslint/eslintrc": "^3",
+        "@types/node": "^20",
+        "@types/nodemailer": "^6.4.17",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "15.4.6",
+        "nodemailer": "^7.0.5",
+        "typescript": "^5"
+    }
 }

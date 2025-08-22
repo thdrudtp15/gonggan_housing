@@ -4,7 +4,11 @@ import { useActionState } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 
 import { Placeholder } from '@tiptap/extensions';
+import Bold from '@tiptap/extension-bold';
+import Strike from '@tiptap/extension-strike';
+import Underline from '@tiptap/extension-underline';
 import StarterKit from '@tiptap/starter-kit';
+import TextAlign from '@tiptap/extension-text-align';
 
 import Tools from './Tools';
 
@@ -19,6 +23,12 @@ const Tiptap = () => {
     const editor = useEditor({
         extensions: [
             StarterKit,
+            Bold,
+            Underline,
+            Strike,
+            TextAlign.configure({
+                types: ['heading', 'paragraph'],
+            }),
             Placeholder.configure({
                 placeholder: '내용',
             }),
@@ -30,10 +40,12 @@ const Tiptap = () => {
 
     if (!editor) return null;
 
+    console.log(editor.isActive('heading', { level: 1 }), '뭐냐몽..??');
+
     return (
         <form action={action}>
             <div className={styles.editor}>
-                <input name="title" placeholder="제목" />
+                <input className={styles.title} name="title" placeholder="제목" />
                 <Tools editor={editor} />
                 <EditorContent editor={editor} />
                 <button>전송</button>

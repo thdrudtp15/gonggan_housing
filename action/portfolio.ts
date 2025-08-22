@@ -1,6 +1,7 @@
 'use server';
 
 import { createClient } from '@/utils/supabase/server';
+import { unstable_cache } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 export const createPortfolio = async (
@@ -14,7 +15,6 @@ export const createPortfolio = async (
     // if (!(await auth).data.user) {
     //     redirect('/');
     // }
-
     const content = formdata.get('content') as string;
     const title = formdata.get('title') as string;
 

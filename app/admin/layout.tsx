@@ -1,13 +1,13 @@
 import { ReactNode } from 'react';
 import { createClient } from '@/utils/supabase/server';
-import { redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 const Layout = async ({ children }: { children: ReactNode }) => {
     const supabase = await createClient();
     const { data, error } = await supabase.auth.getUser();
 
     if (!data.user || error) {
-        redirect('/');
+        notFound();
     }
 
     return <div>{children}</div>;
