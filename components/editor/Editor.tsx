@@ -1,6 +1,6 @@
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 
 import { Placeholder } from '@tiptap/extensions';

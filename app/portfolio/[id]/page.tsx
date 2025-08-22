@@ -37,7 +37,7 @@ const HomePage = async ({ params }: Props) => {
         notFound();
     }
 
-    return <div></div>;
+    return <div dangerouslySetInnerHTML={{ __html: data.content }}></div>;
 };
 
 export default HomePage;

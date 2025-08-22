@@ -1,26 +1,21 @@
 'use client';
+import { uploadImage } from '@/utils/cloudinary/uploadImage';
 import { Node } from '@tiptap/core';
 import { NodeViewProps } from '@tiptap/core';
 import { NodeViewWrapper, ReactNodeViewRenderer } from '@tiptap/react';
 import React, { useEffect, useState } from 'react';
 
 function MyCustomComponent({ editor }: NodeViewProps) {
-    const [image, setImage] = useState<File | null>(null);
+    const [image, setImage] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         if (!image) return;
         editor.commands.insertContent({
             type: 'image',
-            attrs: { src: URL.createObjectURL(image), alt: image.name, width: 300 },
+            attrs: { src: image, alt: 'image', width: 300 },
         });
     }, [image]);
-
-    const dummyLoading = async () => {
-        return new Promise<void>((resolve) => {
-            setTimeout(() => resolve(), 2000);
-        });
-    };
 
     if (image) return null;
 
@@ -38,8 +33,8 @@ function MyCustomComponent({ editor }: NodeViewProps) {
                                 if (!files && !files?.[0]) return;
                                 else {
                                     setLoading(true);
-                                    await dummyLoading();
-                                    setImage(files[0]);
+                                    const url = await uploadImage(files[0]);
+                                    setImage(url);
                                 }
                             }}
                         />
