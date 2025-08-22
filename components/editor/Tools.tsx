@@ -78,7 +78,7 @@ const Tools = ({ editor }: { editor: Editor }) => {
                 </Dropdown>
             </Section>
             <Section>
-                <Button>IMAGE</Button>
+                <Button handleClick={() => editor.commands.insertContent({ type: 'customImageNode' })}>IMAGE</Button>
             </Section>
         </div>
     );

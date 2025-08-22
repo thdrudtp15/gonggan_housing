@@ -9,6 +9,8 @@ import Strike from '@tiptap/extension-strike';
 import Underline from '@tiptap/extension-underline';
 import StarterKit from '@tiptap/starter-kit';
 import TextAlign from '@tiptap/extension-text-align';
+import Image from '@tiptap/extension-image';
+import ImageNode from './custom/Image';
 
 import Tools from './Tools';
 
@@ -26,6 +28,8 @@ const Tiptap = () => {
             Bold,
             Underline,
             Strike,
+            ImageNode,
+            Image,
             TextAlign.configure({
                 types: ['heading', 'paragraph'],
             }),
@@ -39,8 +43,6 @@ const Tiptap = () => {
     });
 
     if (!editor) return null;
-
-    console.log(editor.isActive('heading', { level: 1 }), '뭐냐몽..??');
 
     return (
         <form action={action}>

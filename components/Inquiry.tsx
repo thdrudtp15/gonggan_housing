@@ -2,8 +2,8 @@
 import { useActionState } from 'react';
 import Link from 'next/link';
 
-import { sendMail } from '@/action/mail';
-import { sendMailTypes } from '@/action/mail';
+import { sendMail } from '@/action/inquiry';
+import { sendMailTypes } from '@/action/inquiry';
 
 import styles from './Inquiry.module.scss';
 

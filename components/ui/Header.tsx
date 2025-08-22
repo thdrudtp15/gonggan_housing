@@ -29,6 +29,9 @@ const Header = async () => {
                                 <Link href="/admin">어드민</Link>
                             </li>
                             <li>
+                                <Link href="/admin/portfolio">시공사례 작성</Link>
+                            </li>
+                            <li>
                                 <form action={signOut}>
                                     <button>로그아웃</button>
                                 </form>
