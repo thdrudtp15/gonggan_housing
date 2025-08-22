@@ -35,11 +35,9 @@ const Pagination = ({ totalPages, nowPage = 1 }: Props) => {
 
     return (
         <div className={styles.pagination}>
-            {nowPage !== 1 && (
-                <Link href={sequentialPagination('prev')} className={styles.sequential}>
-                    Previous
-                </Link>
-            )}
+            <Link href={sequentialPagination('prev')} className={styles.sequential}>
+                &lt;
+            </Link>
             <ul className={styles.pageList}>
                 {pageArray.map((page) => (
                     <li key={page}>
@@ -52,11 +50,10 @@ const Pagination = ({ totalPages, nowPage = 1 }: Props) => {
                     </li>
                 ))}
             </ul>
-            {nowPage < totalPages && (
-                <Link href={sequentialPagination('next')} className={styles.sequential}>
-                    Next
-                </Link>
-            )}
+
+            <Link href={sequentialPagination('next')} className={styles.sequential}>
+                &gt;
+            </Link>
         </div>
     );
 };
